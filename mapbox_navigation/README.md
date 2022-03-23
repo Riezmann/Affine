@@ -5,4 +5,7 @@
 2. Find the strings.xml in ```android/app/src/main/res/values/strings.xml``` and change the key to your key.
 3. Find the .env file in ```assets/config``` and change the key to your key.
 
-### AVD: Must choose the device that have Google services
+### AVD: 
+Must choose the device that have Google services
+### Code: 
+You can find the code under the ```lib``` folder
