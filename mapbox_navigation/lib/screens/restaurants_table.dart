@@ -1,8 +1,12 @@
+import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mapbox_navigation/constants/restaurants.dart';
 import 'package:mapbox_navigation/helpers/shared_prefs.dart';
+import 'package:mapbox_navigation/screens/location_navigation.dart';
+import 'package:mapbox_navigation/screens/restaurants_map.dart';
+import 'package:mapbox_navigation/screens/home_management.dart';
 
 class RestaurantsTable extends StatefulWidget {
   const RestaurantsTable({Key? key}) : super(key: key);
@@ -17,25 +21,25 @@ class _RestaurantsTableState extends State<RestaurantsTable> {
   /// We can also create a turn-by-turn navigation for a particular restaurant.
   /// 🔥 Let's look at it in the next video!!
 
-  Widget cardButtons(IconData iconData, String label) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.all(5),
-          minimumSize: Size.zero,
-        ),
-        child: Row(
-          children: [
-            Icon(iconData, size: 16),
-            const SizedBox(width: 2),
-            Text(label)
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget cardButtons(IconData iconData, String label) {
+  //   return Padding(
+  //     padding: const EdgeInsets.only(right: 10),
+  //     child: ElevatedButton(
+  //       onPressed: () => log("Hello World"),
+  //       style: ElevatedButton.styleFrom(
+  //         padding: const EdgeInsets.all(5),
+  //         minimumSize: Size.zero,
+  //       ),
+  //       child: Row(
+  //         children: [
+  //           Icon(iconData, size: 16),
+  //           const SizedBox(width: 2),
+  //           Text(label)
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -108,8 +112,48 @@ class _RestaurantsTableState extends State<RestaurantsTable> {
                                 ),
                                 Row(
                                   children: [
-                                    cardButtons(Icons.call, 'Call'),
-                                    cardButtons(Icons.location_on, 'Map'),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 10),
+                                      child: ElevatedButton(
+                                        onPressed: () => log("Hello World"),
+                                        style: ElevatedButton.styleFrom(
+                                          padding: const EdgeInsets.all(5),
+                                          minimumSize: Size.zero,
+                                        ),
+                                        child: Row(
+                                          children: const [
+                                            Icon(Icons.call, size: 16),
+                                            SizedBox(width: 2),
+                                            Text("Call")
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 10),
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      LocationNavigation(
+                                                        locationIndex: index,
+                                                      )));
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          padding: const EdgeInsets.all(5),
+                                          minimumSize: Size.zero,
+                                        ),
+                                        child: Row(
+                                          children: const [
+                                            Icon(Icons.map, size: 16),
+                                            SizedBox(width: 2),
+                                            Text("Map")
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                     const Spacer(),
                                     Text(
                                         '${(getDistanceFromSharedPrefs(index) / 1000).toStringAsFixed(2)}km'),

@@ -6,6 +6,7 @@ import 'package:mapbox_navigation/constants/restaurants.dart';
 import 'package:mapbox_navigation/helpers/commons.dart';
 import 'package:mapbox_navigation/helpers/shared_prefs.dart';
 import 'package:mapbox_navigation/widgets/carousel_card.dart';
+import 'package:mapbox_navigation/screens/restaurants_table.dart';
 
 class RestaurantsMap extends StatefulWidget {
   const RestaurantsMap({Key? key}) : super(key: key);
