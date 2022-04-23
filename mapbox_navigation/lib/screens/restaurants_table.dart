@@ -16,31 +16,6 @@ class RestaurantsTable extends StatefulWidget {
 }
 
 class _RestaurantsTableState extends State<RestaurantsTable> {
-  /// Add handlers to buttons later on
-  /// For call and maps we can use url_launcher package.
-  /// We can also create a turn-by-turn navigation for a particular restaurant.
-  /// 🔥 Let's look at it in the next video!!
-
-  // Widget cardButtons(IconData iconData, String label) {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(right: 10),
-  //     child: ElevatedButton(
-  //       onPressed: () => log("Hello World"),
-  //       style: ElevatedButton.styleFrom(
-  //         padding: const EdgeInsets.all(5),
-  //         minimumSize: Size.zero,
-  //       ),
-  //       child: Row(
-  //         children: [
-  //           Icon(iconData, size: 16),
-  //           const SizedBox(width: 2),
-  //           Text(label)
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
