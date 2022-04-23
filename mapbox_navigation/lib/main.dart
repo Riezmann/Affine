@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:mapbox_navigation/screens/circle_subscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'ui/splash.dart';
@@ -19,12 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mapbox Flutter',
+      title: 'Affine',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      themeMode: ThemeMode.dark,
-      home: const Splash(),
+      home: Splash(),
+      routes: {
+        CircleSubscreen.routeName: (context) => const CircleSubscreen(),
+      }
     );
   }
 }

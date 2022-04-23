@@ -7,7 +7,11 @@ import 'package:mapbox_navigation/constants/restaurants.dart';
 import 'package:mapbox_navigation/helpers/directions_handler.dart';
 import 'package:mapbox_navigation/main.dart';
 
-import '../screens/home_management.dart';
+//import '../screens/home_management.dart';
+import '../screens/home_screen.dart';
+
+import 'dart:developer';
+
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -43,6 +47,7 @@ class _SplashState extends State<Splash> {
     LocationData _locationData = await _location.getLocation();
     LatLng currentLatLng =
         LatLng(_locationData.latitude!, _locationData.longitude!);
+    log('bruh: $currentLatLng');
 
     // Store the user location in sharedPreferences
     sharedPreferences.setDouble('latitude', _locationData.latitude!);
@@ -56,15 +61,16 @@ class _SplashState extends State<Splash> {
 
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (_) => const HomeManagement()),
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
         (route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.black,
-      child: Center(child: Image.asset('assets/image/splash.png')),
+      child: Center(
+        child: Image.asset('assets/image/splash.png', fit: BoxFit.contain, width: 100),
+      ),
     );
   }
 }
