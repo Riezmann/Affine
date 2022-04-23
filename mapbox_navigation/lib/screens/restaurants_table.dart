@@ -74,7 +74,7 @@ class _RestaurantsTableState extends State<RestaurantsTable> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
-                itemCount: restaurants.length,
+                itemCount: allRestaurant.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
                     clipBehavior: Clip.antiAlias,
@@ -87,7 +87,7 @@ class _RestaurantsTableState extends State<RestaurantsTable> {
                           height: 175,
                           width: 140,
                           fit: BoxFit.cover,
-                          imageUrl: restaurants[index]['image'],
+                          imageUrl: allRestaurant[index].image,
                         ),
                         Expanded(
                           child: Container(
@@ -97,12 +97,12 @@ class _RestaurantsTableState extends State<RestaurantsTable> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  restaurants[index]['name'],
+                                  allRestaurant[index].name,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16),
                                 ),
-                                Text(restaurants[index]['items']),
+                                Text(allRestaurant[index].items),
                                 const Spacer(),
                                 const Text('Waiting time: 2hrs'),
                                 Text(

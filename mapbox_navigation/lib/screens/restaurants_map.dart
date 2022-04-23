@@ -33,7 +33,7 @@ class _RestaurantsMapState extends State<RestaurantsMap> {
     _initialCameraPosition = CameraPosition(target: latLng, zoom: 15);
 
     // Calculate the distance and time from data in SharedPreferences
-    for (int index = 0; index < restaurants.length; index++) {
+    for (int index = 0; index < allRestaurant.length; index++) {
       num distance = getDistanceFromSharedPrefs(index) / 1000;
       num duration = getDurationFromSharedPrefs(index) / 60;
       carouselData
@@ -45,13 +45,13 @@ class _RestaurantsMapState extends State<RestaurantsMap> {
     // Generate the list of carousel widgets
 
     carouselItems = List<Widget>.generate(
-        restaurants.length,
+        allRestaurant.length,
         (index) => carouselCard(carouselData[index]['index'],
             carouselData[index]['distance'], carouselData[index]['duration']));
 
     // initialize map symbols in the same order as carousel widgets
     _kRestaurantsList = List<CameraPosition>.generate(
-        restaurants.length,
+        allRestaurant.length,
         (index) => CameraPosition(
             target: getLatLngFromRestaurantData(carouselData[index]['index']),
             zoom: 15));
