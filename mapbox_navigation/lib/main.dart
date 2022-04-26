@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        backgroundColor: Colors.white
+      ),
       title: 'Affine',
       debugShowCheckedModeBanner: false,
       home: Splash(),

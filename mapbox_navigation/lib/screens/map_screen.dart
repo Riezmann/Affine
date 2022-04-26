@@ -91,7 +91,7 @@ class _MapScreenState extends State<MapScreen> {
           lineColor: Colors.green.toHexStringRGB(),
           lineCap: "round",
           lineJoin: "round",
-          lineWidth: 2,
+          lineWidth: 4,
         ));
   }
 
@@ -103,7 +103,7 @@ class _MapScreenState extends State<MapScreen> {
     for (CameraPosition _kRestaurant in _kRestaurantsList) {
       await controller.addSymbol(SymbolOptions(
         geometry: _kRestaurant.target,
-        iconSize: 0.2,
+        iconSize: 0.1,
         iconImage: 'assets/icon/food.png',
       ));
     }
@@ -115,7 +115,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Restaurants Map'),
+        title: const Text('Map'),
       ),
       body: SafeArea(
         child: Stack(

@@ -41,24 +41,34 @@ class CircleSubscreen extends StatelessWidget {
                     )
                 ),
               ),
+              Container(
+                height: 10,
+              ),
               Text(
                 arg.restaurant['name'],
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16),
+                    fontSize: 20),
               ),
-              Text(arg.restaurant['items']),
-              const Spacer(),
+              Container(
+                height: 10,
+              ),
+              Text(arg.restaurant['items'], style: TextStyle(fontSize: 18),),
+              const Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
+              ),
               const Text('Waiting time: 2hrs'),
               Text(
                 'Closes at 10PM',
                 style:
                 TextStyle(color: Colors.redAccent[100]),
               ),
+              Padding(padding: const EdgeInsets.only(top: 50)),
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(left:30, right: 10),
                     child: ElevatedButton(
                       onPressed: () => log("Hello World"),
                       style: ElevatedButton.styleFrom(
@@ -67,9 +77,9 @@ class CircleSubscreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: const [
-                          Icon(Icons.call, size: 16),
-                          SizedBox(width: 2),
-                          Text("Call")
+                          Icon(Icons.call, size: 20),
+                          SizedBox(width: 5),
+                          Text("Call", style: TextStyle(fontSize: 18))
                         ],
                       ),
                     ),
@@ -92,14 +102,14 @@ class CircleSubscreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: const [
-                          Icon(Icons.map, size: 16),
-                          SizedBox(width: 2),
-                          Text("Map")
+                          Icon(Icons.map, size: 20),
+                          SizedBox(width: 5),
+                          Text("Map", style: TextStyle(fontSize: 17))
                         ],
                       ),
                     ),
                   ),
-                  const Spacer(),
+                  const Padding(padding: EdgeInsets.only(left: 150)),
                   Text(
                       '${(getDistanceFromSharedPrefs(arg.index) / 1000)
                           .toStringAsFixed(
